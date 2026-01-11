@@ -1753,5 +1753,66 @@
         // Запуск приложения
         document.addEventListener('DOMContentLoaded', initApp);
     </script>
+    <script>
+// Регистрация Service Worker для PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function(registration) {
+        console.log('ServiceWorker зарегистрирован: ', registration.scope);
+      })
+      .catch(function(err) {
+        console.log('Ошибка регистрации ServiceWorker: ', err);
+      });
+  });
+}
+
+// Показываем кнопку установки PWA
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  
+  // Создаем кнопку установки
+  const installBtn = document.createElement('button');
+  installBtn.id = 'installBtn';
+  installBtn.innerHTML = '📲 Установить приложение';
+  installBtn.style.cssText = `
+    position: fixed;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #4361ee, #3a0ca3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    z-index: 1001;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: none;
+  `;
+  
+  installBtn.addEventListener('click', () => {
+    installBtn.style.display = 'none';
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('Пользователь установил приложение');
+      }
+      deferredPrompt = null;
+    });
+  });
+  
+  document.body.appendChild(installBtn);
+  
+  // Показываем кнопку через 5 секунд
+  setTimeout(() => {
+    installBtn.style.display = 'block';
+  }, 5000);
+});
+</script>
 </body>
 </html>
