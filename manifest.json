@@ -1,19 +1,104 @@
 {
   "name": "Фитнес-календарь",
   "short_name": "Фитнес",
-  "description": "Календарь тренировок, питания и целей",
-  "start_url": ".",
-  "scope": ".",
+  "description": "Тренировки, питание и цели",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#121212",
   "theme_color": "#4361ee",
-  "orientation": "portrait-primary",
+  "lang": "ru",
+  "dir": "ltr",
+  "categories": ["health", "fitness", "lifestyle"],
   "icons": [
     {
-      "src": "https://cdn.jsdelivr.net/npm/twemoji@14.0.2/assets/svg/1f3cb.svg",
-      "sizes": "512x512",
-      "type": "image/svg+xml",
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/mobile-screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "screenshots/mobile-screenshot2.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Новая тренировка",
+      "short_name": "Тренировка",
+      "description": "Добавить тренировку",
+      "url": "/?action=add-workout",
+      "icons": [
+        {
+          "src": "icons/shortcut-workout.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Новая цель",
+      "short_name": "Цель",
+      "description": "Добавить новую цель",
+      "url": "/?action=add-goal",
+      "icons": [
+        {
+          "src": "icons/shortcut-goal.png",
+          "sizes": "96x96"
+        }
+      ]
     }
   ]
 }

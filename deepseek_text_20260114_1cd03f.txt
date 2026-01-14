@@ -1,0 +1,10 @@
+# Указываем типы файлов
+*.json text
+manifest.json application/manifest+json
+*.webmanifest application/manifest+json
+*.js text/javascript
+*.css text/css
+*.html text/html
+*.png binary
+*.jpg binary
+*.svg binary
